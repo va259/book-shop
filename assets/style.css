@@ -15,22 +15,48 @@
 
 body {
   font-family: Roboto, sans-serif;
+  background: var(--snow-white);
+  color: var(--rich-black);
 }
 
 .wrapper {
   position: relative;
   width: 1300px;
   margin: 40px auto 0 auto;
+  
 }
 
 header {
-  height: 70px;
-  padding: 25px;
+  height: 40px;
   background: gray;
+  padding: 25px;
+  margin-bottom: 35px;
 }
 
 main {
-  background: #03CEA4;
+  
+}
+
+.main_container {
+  display: flex;
+  /* justify-content: space-between; */
+  /* background: #03CEA4; */
+}
+
+.products_container {
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px;
+  /* float: left; */
+}
+
+.cart_container {
+  /* display: flex; */
+  width: 250px;
+  height: 400px;
+  background: var(--light-gray);
+  margin: 25px;
   padding: 25px;
 }
 
@@ -49,8 +75,8 @@ main {
 }
 
 .btn_add_to_cart {
-  background: transparent;
-  border: 3px solid var(--space-blue);
+  background: #3F7CAC;
+  /* border: 3px solid var(--space-blue); */
   color: var(--snow-white);
 }
 
@@ -63,15 +89,23 @@ main {
   color: #F42C04;
 }
 
-.products_container {
-  display: flex;
-  flex-wrap: wrap;
+.btn-close {
+  display: block;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background:#22223B;
+  color: #F42C04;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
 }
 
 .card {
   /* display: flex; */
   width: 400px;
-  margin: 0 20px 40px 0;
+  margin: 0 50px 50px 0;
 }
 
 .product_info {
@@ -82,11 +116,13 @@ main {
 
 .product_title {
   font-size: 24px;
-  margin-bottom: 5px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .product_author {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .product_author::before {
@@ -94,8 +130,8 @@ main {
 }
 
 .product_price {
-  margin: 15px 0;
-  font-size: 14px;
+  margin: 10px 0;
+  font-size: 18px;
 }
 
 .product_price::before {
@@ -104,6 +140,13 @@ main {
 
 .product_description {
   display: none;
+  /* position: absolute; */
+  /* top: 200px; */
+  /* flex-basis: 100%; */
+  /* width: 400px; */
+  background: #E0E0E2;
+  padding: 10px;
+  z-index: 1;
 }
 
 .product_image {
