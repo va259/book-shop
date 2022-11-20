@@ -1,11 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
+:root {
+  --black: #000;
+  --rich-black: #050505;
+  --powder-white: #FDFFFC;
+  --snow-white: #FDF7FA;
+  --gray: #E0E0E2;
+  --light-gray: #CACFD6;
+  --space-blue: #22223B;
+  --ruby-red: #E40066;
+  --green: #03CEA4;
+  --shocking-pink: #E637BF;
+}
+
 body {
   font-family: Roboto, sans-serif;
 }
 
 .wrapper {
   position: relative;
-  width: 1200px;
+  width: 1300px;
   margin: 40px auto 0 auto;
 }
+
+header {
+  height: 70px;
+  padding: 25px;
+  background: gray;
+}
+
+main {
+  background: #03CEA4;
+  padding: 25px;
+}
+
+.btn {
+  width: 190px;
+  height: 50px;
+  /* border-radius: 25px; */
+  border: 0px;
+  text-transform: uppercase;
+  background: var(--gray);
+}
+
+.btn:hover {
+  filter: brightness(135%);
+  cursor: pointer;
+}
+
+.btn_add_to_cart {
+  background: transparent;
+  border: 3px solid var(--space-blue);
+  color: var(--snow-white);
+}
+
+.btn_show_more {
+  background: var(--space-blue);
+  color: var(--snow-white);
+}
+
+.btn-blue:active {
+  color: #F42C04;
+}
+
+.products_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  /* display: flex; */
+  width: 400px;
+  margin: 0 20px 40px 0;
+}
+
+.product_info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 20px;
+}
+
+.product_title {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.product_author {
+  font-size: 18px;
+}
+
+.product_author::before {
+  content: 'by ';
+}
+
+.product_price {
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.product_price::before {
+  content: 'price: ﹩';
+}
+
+.product_description {
+  display: none;
+}
+
+.product_image {
+  float: left;
+  width: 150px;
+  /* height: 200px; */
+  /* margin-right: 15px; */
+}
+
+.product_wrapper {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  height: 200px;
+  margin: 0 0 15px 0;
+  /* float: bottom; */
+}
+
+.btn_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  /* align-content: top; */
+  /* float: bottom; */
+}
+
+
