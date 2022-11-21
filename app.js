@@ -10,7 +10,7 @@ const main = wrapper.appendChild(document.createElement('main'));
 const footer = wrapper.appendChild(document.createElement('footer'));
 
 const div = header.appendChild(document.createElement('div'));
-div.innerHTML = 'Dear student, please check back on Wednesday – Nov, 21st. Thank you for understanding!';
+div.innerHTML = 'Dear student, please check back on Wednesday – Nov, 23rd. Thank you for understanding!';
 
 const mainContainer = main.appendChild(document.createElement('div'));
 mainContainer.classList.add('main_container')
