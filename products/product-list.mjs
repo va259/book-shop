@@ -4,7 +4,7 @@ export const productsList = [
     'author': 'Marijn Haverbeke',
     'price': '20.11',
     'description': 'JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.\nThis much anticipated and thoroughly revised third edition of Eloquent JavaScript dives deep into the JavaScript language to show you how to write beautiful, effective code.',
-    'cover': '/products/images/1-eloquent-js.jpeg'
+    'cover': './products/images/1-eloquent-js.jpeg'
   },
   {
     'title': 'JavaScript: The Definitive Guide: Activate Your Web Pages',
