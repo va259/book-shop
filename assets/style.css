@@ -156,14 +156,15 @@ main {
 }
 
 .product_title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
+  line-height: 130%;
   margin-bottom: 10px;
 }
 
 .product_author {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .product_author::before {
@@ -171,12 +172,13 @@ main {
 }
 
 .product_price {
-  margin: 10px 0;
-  font-size: 18px;
+  margin: 15px 0;
+  font-size: 26px;
+  font-weight: 500;
 }
 
 .product_price::before {
-  content: 'price: ﹩';
+  content: '$';
 }
 
 .product_description {
