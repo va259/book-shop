@@ -80,7 +80,11 @@ cartItems.classList.add('cart_items');
 
 const cartSubtotal = cartContainer.appendChild(document.createElement('div'));
 cartSubtotal.classList.add('cart_subtotal');
-// cartSubtotal.textContent = 'Total:'
+
+const btnConfirm = cartContainer.appendChild(document.createElement('button'));
+btnConfirm.textContent = 'Confirm Order';
+btnConfirm.classList.add('btn', 'btn_confirm');
+
 
 cart.append(cartContainer);
 
