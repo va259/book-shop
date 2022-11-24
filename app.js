@@ -54,9 +54,8 @@ const renderProducts = () => {
       }
   
       if (action === 'addtocart') {
-        const title = event.target.parentNode.closest('.card').firstElementChild.lastElementChild.firstElementChild.textContent;
-        productsIncart.push(title)
-        // console.log(productsIncart);
+        const bookTitle = event.target.parentNode.closest('.card').firstElementChild.lastElementChild.firstElementChild.textContent;
+        if (!productsIncart.includes(bookTitle)) productsIncart.push(bookTitle);
         updateCart();
       }
   
@@ -75,10 +74,13 @@ const cart = new DocumentFragment();
 const cartContainer = document.createElement('div');
 cartContainer.textContent = 'Shopping cart';
 cartContainer.classList.add('cart_container');
+
 const cartItems = cartContainer.appendChild(document.createElement('div'));
 cartItems.classList.add('cart_items');
+
 const cartSubtotal = cartContainer.appendChild(document.createElement('div'));
 cartSubtotal.classList.add('cart_subtotal');
+// cartSubtotal.textContent = 'Total:'
 
 cart.append(cartContainer);
 
@@ -97,7 +99,7 @@ const renderCartProducts = () => {
       <div class="cart_item">
         <div class="cart_title">${product.title}</div>
         <div class="cart_author">${product.author}</div>
-        <div class="cart_price">${product.price}</div>
+        <div class="cart_price">$${product.price}</div>
         <div class="cart_item_btn" data-action="removefromcart"></div>
       </div>
     `
@@ -116,9 +118,17 @@ const renderCartProducts = () => {
 };
 
 const renderSubtotal = () => {
-  
+  let totalPrice = 0;
+
+  productsList.reduce((acc, product) => {
+    if (!productsIncart.includes(product.title)) return;
+    totalPrice += +product.price;
+  })
+
+  cartSubtotal.textContent = `Total: ${totalPrice.toFixed(2)}`;
 };
 
+renderSubtotal();
 
 mainContainer.append(catalog);
 mainContainer.append(cart);
