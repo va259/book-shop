@@ -8,7 +8,7 @@ const main = wrapper.appendChild(document.createElement('main'));
 const footer = wrapper.appendChild(document.createElement('footer'));
 
 const div = header.appendChild(document.createElement('div'));
-div.textContent = 'Dear student, please check back on Frida – Nov, 25th. Thank you for understanding!';
+div.textContent = 'Dear student, please check back on Friday – Nov, 25th. Thank you for understanding!';
 
 const mainContainer = main.appendChild(document.createElement('div'));
 mainContainer.classList.add('main_container')
@@ -18,7 +18,7 @@ const productsContainer = document.createElement('div');
 productsContainer.classList.add('products_container');
 catalog.append(productsContainer);
 
-const productsIncart = [];
+let productsIncart = [];
 
 const renderProducts = () => {
   productsList.reduce((acc, product) => {
@@ -43,20 +43,21 @@ const renderProducts = () => {
           <button class="btn" data-action="showmore">show more</button>
       </div>
     `
-
+    
     card.addEventListener('click', (event) => {
       const action = event.target.dataset.action;
   
       if (action === 'showmore') {
         const div = event.target.parentNode.closest('.card').firstElementChild.lastElementChild.lastElementChild;
+        console.log(div);
         div.style.display = 'block';
       }
   
       if (action === 'addtocart') {
         const title = event.target.parentNode.closest('.card').firstElementChild.lastElementChild.firstElementChild.textContent;
-        console.log(title);
         productsIncart.push(title)
-        console.log(shoppingCart);
+        // console.log(productsIncart);
+        updateCart();
       }
   
       if (action === 'closedescription') {
@@ -68,16 +69,56 @@ const renderProducts = () => {
   }, 0)
 }
 
-renderProducts(); 
-    
+renderProducts();
+
 const cart = new DocumentFragment();
 const cartContainer = document.createElement('div');
-cartContainer.textContent = 'Shopping cart area';
+cartContainer.textContent = 'Shopping cart';
 cartContainer.classList.add('cart_container');
 const cartItems = cartContainer.appendChild(document.createElement('div'));
 cartItems.classList.add('cart_items');
+const cartSubtotal = cartContainer.appendChild(document.createElement('div'));
+cartSubtotal.classList.add('cart_subtotal');
 
 cart.append(cartContainer);
+
+const updateCart = () => {
+  renderCartProducts();
+  renderSubtotal();
+}
+
+const renderCartProducts = () => {
+  cartItems.innerHTML = '';
+  productsList.reduce((acc, product) => {
+    // console.log(cartItems.innerHTML);
+    if (!productsIncart.includes(product.title)) return;
+
+    cartItems.innerHTML += `
+      <div class="cart_item">
+        <div class="cart_title">${product.title}</div>
+        <div class="cart_author">${product.author}</div>
+        <div class="cart_price">${product.price}</div>
+        <div class="cart_item_btn" data-action="removefromcart"></div>
+      </div>
+    `
+
+    cartItems.addEventListener('click', (event) => {
+      const action = event.target.dataset.action;
+
+      if (action === 'removefromcart') {
+        const title = event.target.parentNode.closest('.cart_item').firstElementChild.textContent;
+        console.log(title);
+        productsIncart = productsIncart.filter(el => el !== title);
+        updateCart();
+      }
+    });
+  })
+};
+
+const renderSubtotal = () => {
+  
+};
+
 
 mainContainer.append(catalog);
 mainContainer.append(cart);

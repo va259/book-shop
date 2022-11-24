@@ -217,17 +217,51 @@ main {
 }
 
 .cart_container {
+  font-size: 22px;
+}
 
+.cart_items {
+  margin: 25px 0;
+}
+
+.cart_item {
+  position: relative;
+  width: 250px;
+  margin-bottom: 10px;
 }
 
 .cart_title {
-
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .cart_author {
-
+  font-size: 14px;
 }
 
 .cart_price {
-  
+  font-size: 14px;
+}
+
+.cart_subtotal {
+  float: bottom;
+}
+
+.cart_item_btn {
+  display: block;
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  color: var(--rich-black);
+  width: 25px;
+  height: 25px;
+  right: 0;
+  top: 20px;
+  border-radius: 50%;
+}
+
+.cart_item_btn::before {
+  content: 'ⓧ';
+  font-size: 30px;
+  font-weight: 600;
 }
