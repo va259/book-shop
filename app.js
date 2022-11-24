@@ -5,7 +5,6 @@ const wrapper = body.appendChild(document.createElement('div'));
 wrapper.classList.add('wrapper');
 const header = wrapper.appendChild(document.createElement('header'));
 const main = wrapper.appendChild(document.createElement('main'));
-const footer = wrapper.appendChild(document.createElement('footer'));
 
 const div = header.appendChild(document.createElement('div'));
 div.textContent = 'Dear student, please check back on Friday – Nov, 25th. Thank you for understanding!';
@@ -80,7 +79,12 @@ cartItems.classList.add('cart_items');
 
 const cartSubtotal = cartContainer.appendChild(document.createElement('div'));
 cartSubtotal.classList.add('cart_subtotal');
-// cartSubtotal.textContent = 'Total:'
+
+const btnConfirm = cartContainer.appendChild(document.createElement('button'));
+btnConfirm.textContent = 'Confirm Order';
+btnConfirm.classList.add('btn', 'btn_confirm');
+btnConfirm.onclick = () => { location.href=`form.html` }
+
 
 cart.append(cartContainer);
 
