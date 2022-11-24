@@ -133,7 +133,9 @@ main {
 .card {
   /* display: flex; */
   width: 400px;
-  margin: 0 80px 60px 0;
+  margin: 0 60px 40px 0;
+  background: #fff;
+  padding: 20px;
 }
 
 .product_info {
@@ -206,15 +208,16 @@ main {
 .cart_container {
   /* display: flex; */
   width: 250px;
-  /* height: 500px; */
-  /* background: var(--light-gray); */
+  height: 600px;
   /* margin: 25px; */
-  padding: 25px;
+  /* padding: 25px; */
   font-size: 22px;
+  padding: 20px;
+  background: #fff;
 }
 
 .cart_items {
-  /* margin: 25px 0; */
+  margin: 25px 0;
 }
 
 .cart_item {
@@ -222,23 +225,24 @@ main {
   width: 250px;
   margin-bottom: 10px;
   margin: 25px 0;
+  line-height: 105%;
 }
 
 .cart_title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .cart_author {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .cart_price {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .cart_subtotal {
-  float: bottom;
+  /* float: bottom; */
 }
 
 .cart_item_btn {
@@ -263,4 +267,44 @@ main {
 .btn_confirm {
   width: 230px;
   margin: 25px 0;
+}
+
+.form_wrapper {
+  width: 800px;
+}
+
+main {
+  background: #fff;
+  padding: 25px;
+}
+
+form {
+  width: 500px;
+}
+
+input {
+  margin-top: 20px;
+}
+
+input[type=text] {
+  width: calc(100% - 25px);
+  height: 30px;
+}
+
+input[type=date] {
+  width: calc(100% - 25px);
+  height: 30px;
+}
+
+input[type=radio] {
+  margin-right: 25px;
+  /* width: 100px; */
+}
+
+form p {
+  margin-top: 20px;
+}
+
+.btn_form {
+  margin-top: 20px;
 }

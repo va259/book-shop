@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/resets/normalize.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>JS Book Shop - Order</title>
+</head>
+<body>
+    <div class="wrapper form_wrapper">
+        <header>
+            <div class="div">Order Summary</div>
+        </header>
+        <main>
+            <form action="">
+                <input type="text" placeholder="First Name*" required /><br>
+                <input type="text" placeholder="Last Name*" required /><br>
+                <input type="date" required /><br>
+                <input type="text" placeholder="Street*" required /><br>
+                <input type="text" placeholder="House number*" required /><br>
+                <input type="text" placeholder="Flat number*" required /><br>
+                <p>Choose your payment method</p>
+                <label><input type="radio" name="payment" value="cash" />Cash</label>
+                <label><input type="radio" name="payment" value="card" />Card</label>
+                <p>2 gifts (optional)</p>
+                <label><input type="checkbox" name="gift" value="1" />1</label>
+                <label><input type="checkbox" name="gift" value="2" />2</label>   
+                <label><input type="checkbox" name="gift" value="3" />3</label>   
+                <label><input type="checkbox" name="gift" value="4" />4</label>
+                <br>
+                <button class="btn btn_form">Submit</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
