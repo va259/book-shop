@@ -254,7 +254,7 @@ main {
   width: 25px;
   height: 25px;
   right: 0;
-  top: 20px;
+  bottom: 0;
   border-radius: 50%;
 }
 
@@ -273,26 +273,26 @@ main {
   width: 800px;
 }
 
-main {
+.form_container {
   background: #fff;
   padding: 25px;
 }
 
 form {
-  width: 500px;
+  /* width: 500px; */
 }
 
 input {
-  margin-top: 20px;
+  margin: 20px 25px 0 0;
 }
 
 input[type=text] {
-  width: calc(100% - 25px);
+  width: 330px;
   height: 30px;
 }
 
 input[type=date] {
-  width: calc(100% - 25px);
+  width: 330px;
   height: 30px;
 }
 
@@ -307,4 +307,12 @@ form p {
 
 .btn_form {
   margin-top: 20px;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  /* border: 1px solid red; */
 }
