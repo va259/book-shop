@@ -7,7 +7,9 @@ const header = wrapper.appendChild(document.createElement('header'));
 const main = wrapper.appendChild(document.createElement('main'));
 
 const div = header.appendChild(document.createElement('div'));
-div.textContent = 'Dear student, please check back on Friday – Nov, 25th. Thank you for understanding!';
+div.textContent = 'Book store: the best dev books';
+
+let productsIncart = [];
 
 const mainContainer = main.appendChild(document.createElement('div'));
 mainContainer.classList.add('main_container')
@@ -17,7 +19,7 @@ const productsContainer = document.createElement('div');
 productsContainer.classList.add('products_container');
 catalog.append(productsContainer);
 
-let productsIncart = [];
+
 
 const renderProducts = () => {
   productsList.reduce((acc, product) => {
@@ -48,12 +50,14 @@ const renderProducts = () => {
   
       if (action === 'showmore') {
         const div = event.target.parentNode.closest('.card').firstElementChild.lastElementChild.lastElementChild;
-        console.log(div);
+        console.log('div', div);
         div.style.display = 'block';
       }
   
       if (action === 'addtocart') {
         const bookTitle = event.target.parentNode.closest('.card').firstElementChild.lastElementChild.firstElementChild.textContent;
+        console.log('bookTitle', bookTitle);
+        console.log('cart', productsIncart);
         if (!productsIncart.includes(bookTitle)) productsIncart.push(bookTitle);
         updateCart();
       }
@@ -118,7 +122,7 @@ const renderCartProducts = () => {
         updateCart();
       }
     });
-  })
+  }, 0)
 };
 
 const renderSubtotal = () => {
@@ -127,7 +131,7 @@ const renderSubtotal = () => {
   productsList.reduce((acc, product) => {
     if (!productsIncart.includes(product.title)) return;
     totalPrice += +product.price;
-  })
+  }, 0)
 
   cartSubtotal.textContent = `Total: ${totalPrice.toFixed(2)}`;
 };
