@@ -7,7 +7,7 @@ const header = wrapper.appendChild(document.createElement('header'));
 const main = wrapper.appendChild(document.createElement('main'));
 
 const div = header.appendChild(document.createElement('div'));
-div.textContent = 'Book store: the best dev books';
+div.textContent = 'BOOK STORE: THE BEST DEV BOOKS';
 
 let productsIncart = [];
 
@@ -29,7 +29,7 @@ const renderProducts = () => {
 
     card.innerHTML += `
       <div class="product_wrapper">
-          <img src="${product.cover}" class="product_image" alt="${product.description}">
+          <img src="${product.cover}" class="product_image" draggable="true" alt="${product.description}">
           <div class="product_info">
               <div class="product_title">${product.title}</div>
               <div class="product_author">${product.author}</div>
@@ -140,3 +140,30 @@ renderSubtotal();
 
 mainContainer.append(catalog);
 mainContainer.append(cart);
+
+const dragElements = document.querySelectorAll('.product_image');
+const dragElementsArr = Array.from(dragElements)
+console.log(dragElementsArr);
+dragElementsArr.reduce((acc, el) => {
+  el.addEventListener('dragstart', (event) => {
+    console.log(event.currentTarget);
+    event.currentTarget.classList.add('dragging');
+    event.dataTransfer.clearData();
+    event.dataTransfer.setData('text/plain', event.target.closest('.product_wrapper').lastElementChild.firstElementChild.textContent);
+  })
+  el.addEventListener("dragend", (event) =>
+    event.currentTarget.classList.remove('dragging')
+  );
+}, 0)
+
+
+const dragTarget = document.querySelector(".cart_container");
+dragTarget.addEventListener('dragover', (event) => {
+  event.preventDefault();
+});
+dragTarget.addEventListener('drop', (event) => {
+  event.preventDefault();
+  const bookTitle = event.dataTransfer.getData("text");
+  if (!productsIncart.includes(bookTitle)) productsIncart.push(bookTitle);
+  updateCart();
+});

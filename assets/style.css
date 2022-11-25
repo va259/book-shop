@@ -184,33 +184,29 @@ main {
 .product_image {
   float: left;
   width: 150px;
-  /* height: 200px; */
-  /* margin-right: 15px; */
+  cursor: pointer;
 }
 
 .product_wrapper {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-around; */
   height: 200px;
   margin: 0 0 20px 0;
-  /* float: bottom; */
 }
 
 .btn_wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* align-content: top; */
-  /* float: bottom; */
+}
+
+.dragging {
+  border: 2px solid var(--shocking-pink);
 }
 
 .cart_container {
-  /* display: flex; */
   width: 250px;
   height: 780px;
-  /* margin: 25px; */
-  /* padding: 25px; */
   font-size: 22px;
   padding: 20px;
   background: #fff;
