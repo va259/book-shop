@@ -110,7 +110,7 @@ const blurHandler = event => {
   }
 
   if (target.id === 'flatnumber') {
-    if (!/^[1-9]+[0-9-]*$/.test(housenumber.value)) {
+    if (!/^[1-9]+[0-9-]*$/.test(flatnumber.value)) {
       addErrorClass(target);
       if (!fails.includes(target.id)) fails.push(target.id);
     } else {
@@ -118,7 +118,6 @@ const blurHandler = event => {
       fails = fails.filter(el => el != target.id);
     };
   }
-
 
   if (target.type === 'radio') {
     const checked = document.querySelector('input[type=radio]:checked');
