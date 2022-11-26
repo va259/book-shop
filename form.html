@@ -15,22 +15,52 @@
         </header>
         <main>
             <div class="form_container">
-                <form action="confirmation.html" method="GET">
-                    <input type="text" id="firstname" pattern="^[A-Za-z]+$" minlength="4" placeholder="First Name*" required oninvalid="this.setCustomValidity('The field is invalid')" onvalid="this.setCustomValidity('')" />
-                    <input type="text" id="lastname" pattern="^[A-Za-z]+$" minlength="5" placeholder="Last Name*" required oninvalid="this.setCustomValidity('The field is invalid')" onvalid="this.setCustomValidity('')" /><br>
-                    <input type="text" id="street" minlength="5" placeholder="Street*" required oninvalid="this.setCustomValidity('The field is invalid')" onvalid="this.setCustomValidity('')" />
-                    <input type="text" id="housenumber" pattern="^\d+$" placeholder="House number*" required oninvalid="this.setCustomValidity('The field is invalid')" onvalid="this.setCustomValidity('')" /><br>
-                    <input type="text" id="flatnumber" pattern="^[1-9]+[0-9-]*$" placeholder="Flat number*" required oninvalid="this.setCustomValidity('The field is invalid')" onvalid="this.setCustomValidity('')" />
-                    <input type="date" id="datePicker" required /><br>
-                    <p>Choose your payment method:</p>
-                    <label><input type="radio" name="payment" value="cash" />Cash</label>
-                    <label><input type="radio" name="payment" value="card" />Card</label>
-                    <p>Choose your 2 gifts:</p>
-                    <label><input type="checkbox" name="gift" value="1" />1</label>
-                    <label><input type="checkbox" name="gift" value="2" />2</label>   
-                    <label><input type="checkbox" name="gift" value="3" />3</label>   
-                    <label><input type="checkbox" name="gift" value="4" />4</label><br>
-                    <input type="submit" class="btn btn_form">
+                <form action="confirmation.html" method="post">
+                    <div class="form_box">
+                        <label for="firstname">First Name *</label>
+                        <input type="text" id="firstname" placeholder="First Name" required />
+                    </div>
+                    <div class="form_box" data-errormsg="">
+                        <label for="lastname">Last Name *</label>
+                        <input type="text" id="lastname" placeholder="Last Name" required />
+                    </div>
+                    <div class="form_box" data-errormsg="">
+                        <label for="street">Street *</label>
+                        <input type="text" id="street" placeholder="Street" required />
+                    </div>
+                    <div class="form_box" data-errormsg="">
+                        <label for="housenumber">House number *</label>
+                        <input type="text" id="housenumber" placeholder="House number" required />
+                    </div>
+                    <div class="form_box" data-errormsg="">
+                        <label for="flatnumber">Apt number *</label>
+                        <input type="text" id="flatnumber" placeholder="Flat number" required />
+                    </div>
+                    <div class="form_box" data-errormsg="">
+                        <label for="datePicker">Date of delivery *</label>
+                        <input type="date" id="datePicker" required />
+                    </div>
+                    <div class="form_box" data-errormsg="">
+                        <fieldset>
+                            <legend>Choose the payment method*:</legend>
+                            <label for="cash">Cash:
+                                <input type="radio" name="payment" id="cash" value="cash" />
+                            </label>
+                            <label for="card">Card:
+                                <input type="radio" name="payment" id="card" value="card" />
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div class="form_box" data-errormsg="">
+                        <label for="gift">Choose 2 gifts:</label>
+                        <select name="gift" id="gift" size="3" multiple>
+                            <option value="0">Pack as a gift</option>
+                            <option value="1">Add postcard</option>
+                            <option value="2">Provide 2% discount to the next time</option>
+                            <option value="3">Branded pen or pencil</option>
+                        </select>
+                    </div>
+                    <input type="submit" id="btn-submit" class="btn btn_form">
                 </form>
             </div>
         </main>

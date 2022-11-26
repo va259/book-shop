@@ -67,7 +67,6 @@ const renderProducts = () => {
         div.style.display = 'none';
       }
     });
-
   }, 0)
 }
 
@@ -100,7 +99,6 @@ const updateCart = () => {
 const renderCartProducts = () => {
   cartItems.innerHTML = '';
   productsList.reduce((acc, product) => {
-    // console.log(cartItems.innerHTML);
     if (!productsIncart.includes(product.title)) return;
 
     cartItems.innerHTML += `
@@ -143,10 +141,8 @@ mainContainer.append(cart);
 
 const dragElements = document.querySelectorAll('.product_image');
 const dragElementsArr = Array.from(dragElements)
-console.log(dragElementsArr);
 dragElementsArr.reduce((acc, el) => {
   el.addEventListener('dragstart', (event) => {
-    console.log(event.currentTarget);
     event.currentTarget.classList.add('dragging');
     event.dataTransfer.clearData();
     event.dataTransfer.setData('text/plain', event.target.closest('.product_wrapper').lastElementChild.firstElementChild.textContent);
