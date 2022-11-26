@@ -4,10 +4,8 @@ const body = document.body;
 const wrapper = body.appendChild(document.createElement('div'));
 wrapper.classList.add('wrapper');
 const header = wrapper.appendChild(document.createElement('header'));
+header.textContent = 'BOOK STORE: THE BEST BOOKS FOR THE BEST DEVELOPERS'
 const main = wrapper.appendChild(document.createElement('main'));
-
-const div = header.appendChild(document.createElement('div'));
-div.textContent = 'BOOK STORE: THE BEST DEV BOOKS';
 
 let productsIncart = [];
 

@@ -33,5 +33,12 @@ export const productsList = [
     'price': '37.26',
     'description': 'Grokking Algorithms is a fully illustrated, friendly guide that teaches you how to apply common algorithms to the practical problems you face every day as a programmer. You\'ll start with sorting and searching and, as you build up your skills in thinking algorithmically, you\'ll tackle more complex concerns such as data compression and artificial intelligence. Each carefully presented example includes helpful diagrams and fully annotated code samples in Python.',
     'cover': './products/images/5-grokking-algorithms.jpg'
+  },
+  {
+    'title': 'Learning JavaScript Design Patterns',
+    'author': 'Addy Osmani',
+    'price': '25.99',
+    'description': 'With Learning JavaScript Design Patterns, you\’ll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.',
+    'cover': './products/images/6-js-design-patterns.png'
   }
 ]
