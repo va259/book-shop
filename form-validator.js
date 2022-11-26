@@ -1,9 +1,11 @@
 const submit = document.querySelector('.btn_form');
 submit.classList.add('btn_form_disabled');
+const main = document.querySelector('main');
 
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
 const street = document.getElementById('street');
+const deliveryDate = document.getElementById('datePicker');
 const housenumber = document.getElementById('housenumber');
 const flatnumber = document.getElementById('flatnumber');
 const radio = document.querySelector('input[type=radio]');
@@ -22,8 +24,19 @@ let fails = ['firstname', 'lastname', 'street', 'datePicker', 'housenumber', 'fl
 
 const submitHandler = event => {
   event.preventDefault();
+  const modal = main.appendChild(document.createElement('div'));
+  modal.classList.add('confirmation_modal');
+  modal.innerHTML += `
+    <p>Confirmation:</p>
+    <p>First Name: ${firstname.value}</p>
+    <p>Last Name: ${lastname.value}</p>
+    <p>Street Address: ${street.value}</p>
+    <p>Delivery Date: ${deliveryDate.value}</p>
+    <p>House #: ${housenumber.value}</p>
+    <p>Apt #: ${flatnumber.value}</p>
+    <p>Payment: ${radio.value}</p>
+  `
 }
-
 
 const focusHandler = event => {
   event.preventDefault();
@@ -43,7 +56,6 @@ const removeErrorClass = target => {
 const blurHandler = event => {
   event.preventDefault();
   const target = event.target;
-  console.log(target.type === 'radio')
 
   if (target.id === 'firstname') {
     if (!/^[A-Za-z]{4,}$/.test(firstname.value)) {
@@ -76,7 +88,7 @@ const blurHandler = event => {
   }
 
   if (target.id === 'street') {
-    if (!/^[A-Za-z0-9]{5,}$/.test(street.value)) {
+    if (!/^[A-Za-z0-9 ]{5,}$/.test(street.value)) {
       addErrorClass(target);
       if (!fails.includes(target.id)) fails.push(target.id);
     } else {
@@ -94,7 +106,6 @@ const blurHandler = event => {
       fails = fails.filter(el => el != target.id);
     };
   }
-
 
   if (target.id === 'flatnumber') {
     if (!/^[1-9]+[0-9-]*$/.test(housenumber.value)) {
@@ -118,10 +129,9 @@ const blurHandler = event => {
     }
   }
 
-  console.log(fails);
   if (fails.length === 0) {
     submit.classList.remove('btn_form_disabled');
-    submit.setAttribute('disabled', false);
+    submit.disabled = false;
   } else {
     submit.classList.add('btn_form_disabled');
     submit.setAttribute('disabled', true);

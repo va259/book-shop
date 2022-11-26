@@ -301,12 +301,12 @@ form {
 }
 
 input[type=text] {
-  width: 230px;
+  width: 350px;
   height: 30px;
 }
 
 input[type=date] {
-  width: 230px;
+  width: 355px;
   height: 30px;
 }
 
@@ -369,4 +369,16 @@ fieldset {
   float: left;
   width: 100px;
   margin-right: 20px;
+}
+
+.confirmation_modal {
+  font-size: 22px;
+  position: absolute;
+  top: 150px;
+  left: 200px;
+  width: 300px;
+  padding: 35px 65px;
+  background: #fff;
+  border: 1px solid var(--gray);
+  z-index: 2;
 }
