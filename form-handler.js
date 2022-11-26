@@ -13,6 +13,7 @@ const radio = document.querySelector('input[type=radio]');
 const init = () => {
   const submit = document.querySelector('.btn_form');
   submit.addEventListener('click', submitHandler);
+  submit.setAttribute('disabled', true);
 
   const form = document.querySelector('form');
   form.addEventListener('submit', submitHandler);
@@ -24,6 +25,7 @@ let fails = ['firstname', 'lastname', 'street', 'datePicker', 'housenumber', 'fl
 
 const submitHandler = event => {
   event.preventDefault();
+
   const modal = main.appendChild(document.createElement('div'));
   modal.classList.add('confirmation_modal');
   modal.innerHTML += `
