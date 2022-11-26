@@ -29,10 +29,11 @@ body {
 
 header {
   height: 40px;
-  background: var(--light-gray);
+  background: #fff;
   padding: 25px;
   margin-bottom: 35px;
   font-size: 30px;
+  color: var(--rich-black);
 }
 
 main {
@@ -41,6 +42,7 @@ main {
 
 .main_container {
   display: flex;
+  justify-content: space-between;
 }
 
 .products_container {
@@ -52,28 +54,20 @@ main {
 .btn {
   width: 170px;
   height: 40px;
-  /* border-radius: 25px; */
+  border-radius: 3px;
   background: transparent;
   color: var(--steel-blue);
   border: 3px solid #3F7CAC;
   box-sizing: content-box;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: 19px;
 }
 
 .btn:hover {
-  /* filter: brightness(135%); */
   cursor: pointer;
   background: var(--steel-blue);
   color: var(--snow-white);
-}
-
-.btn_add_to_cart {
-  /* border: 3px solid var(--space-blue); */
-}
-
-.btn_show_more {
-  
 }
 
 .btn-blue:active {
@@ -88,13 +82,11 @@ main {
   right: -12px;
   text-align: center;
   cursor: pointer;
-  background:#050505;
+  background: #3F7CAC;
   color: #FDF7FA;
   width: 25px;
   height: 25px;
-  border: 2px solid #fff;
   border-radius: 50%;
-  
 }
 
 .btn_close::before {
@@ -105,8 +97,7 @@ main {
 
 .btn_close:hover {
   font-weight: 800;
-  color: #cdcdcd;
-  background:#1d1d1d;
+  background: var(--ruby-red);
 }
 
 .btn_remove {
@@ -237,16 +228,12 @@ main {
   font-size: 16px;
 }
 
-.cart_subtotal {
-  /* float: bottom; */
-}
-
 .cart_item_btn {
   display: block;
   position: absolute;
   text-align: center;
   cursor: pointer;
-  color: var(--rich-black);
+  color: #3F7CAC;
   width: 25px;
   height: 25px;
   right: 0;
@@ -258,6 +245,10 @@ main {
   content: 'x';
   font-size: 30px;
   font-weight: 600;
+}
+
+.cart_item_btn:hover {
+  color: var(--ruby-red);
 }
 
 .btn_confirm {
