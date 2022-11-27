@@ -9,6 +9,7 @@ const deliveryDate = document.getElementById('datePicker');
 const housenumber = document.getElementById('housenumber');
 const flatnumber = document.getElementById('flatnumber');
 const radio = document.querySelector('input[type=radio]');
+const checkboxes = Array.from(document.querySelectorAll('input[type=checkbox]'));
 
 const init = () => {
   const submit = document.querySelector('.btn_form');
@@ -21,7 +22,8 @@ const init = () => {
   form.addEventListener('blur', blurHandler, true)
 }
 
-let fails = ['firstname', 'lastname', 'street', 'datePicker', 'housenumber', 'flatnumber', 'radio'];
+let fails = ['firstname', 'lastname', 'street', 'datePicker',
+            'housenumber', 'flatnumber', 'radio'];
 
 const submitHandler = event => {
   event.preventDefault();
@@ -37,6 +39,7 @@ const submitHandler = event => {
     <p>House #: ${housenumber.value}</p>
     <p>Apt #: ${flatnumber.value}</p>
     <p>Payment: ${radio.value}</p>
+    <p>Gifts: ${checkboxes.filter(el => el.checked).map(el => el.value)}</p>
   `
 }
 
@@ -121,11 +124,21 @@ const blurHandler = event => {
 
   if (target.type === 'radio') {
     const checked = document.querySelector('input[type=radio]:checked');
-    console.log('checked', checked)
     if (checked === null) {
       addErrorClass(target);
     } else {
       removeErrorClass(target);
+      fails = fails.filter(el => el != target.type);
+    }
+  }
+
+  if (target.type === 'checkbox') {
+    const checked = document.querySelectorAll('input[type=checkbox]:checked');
+    if (checked.length > 2) {
+      addErrorClass(target.closest('fieldset'));
+      if (!fails.includes(target.type)) fails.push(target.type);
+    } else {
+      removeErrorClass(target.closest('fieldset'));
       fails = fails.filter(el => el != target.type);
     }
   }
@@ -142,19 +155,5 @@ const blurHandler = event => {
 const datePicker = document.getElementById("datePicker");
 const tomorrow = new Date(Date.now() + (3600 * 1000 * 24)).toISOString().split("T")[0];
 datePicker.setAttribute('min', tomorrow);
-
-// const select = document.getElementById('gift');
-// const maxOptions = 2;
-// let optionCount = 0;
-// for (let i = 0; i < select.length; i++) {
-//   if (select[i].selected) {
-//     optionCount++;
-//     if (optionCount > maxOptions) {
-//       alert("validation failed, not submitting")
-//       return false;
-//     }
-//   }
-// }
-// return true;
 
 document.addEventListener('DOMContentLoaded', init)

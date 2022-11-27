@@ -284,6 +284,9 @@ form {
   height: 30px;
 }
 
+.chk label {
+  width: 330px;
+}
 
 .form-box input{
   /* width: 400px; */
@@ -305,6 +308,12 @@ input[type=radio] {
   /* width: 100px; */
 }
 
+input[type=checkbox] {
+  /* margin: 2px 0 0 6px; */
+  margin-left: 6px;
+  margin-top: 1px;
+}
+
 form p {
   margin-top: 20px;
 }
@@ -314,7 +323,8 @@ form p {
 }
 
 .btn_form {
-  margin-top: 20px;
+  margin: 20px 0 0 15px;
+  /* margin-top: 20px; */
 }
 
 .btn_form_disabled {
@@ -333,7 +343,7 @@ form p {
 }
 
 fieldset {
-  width: 360px;
+  width: 480px;
 }
 
 .error::after{
