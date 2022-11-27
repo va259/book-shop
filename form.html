@@ -51,14 +51,22 @@
                             </label>
                         </fieldset>
                     </div>
-                    <div class="form_box" data-errormsg="">
-                        <label for="gift">Choose 2 gifts:</label>
-                        <select name="gift" id="gift" size="3" multiple>
-                            <option value="0">Pack as a gift</option>
-                            <option value="1">Add postcard</option>
-                            <option value="2">Provide 2% discount to the next time</option>
-                            <option value="3">Branded pen or pencil</option>
-                        </select>
+                    <div class="form_box chk" data-errormsg="">
+                        <fieldset>
+                            <legend>Choose 2 gifts:</legend>    
+                            <label for="gift1">Pack as a gift
+                                <input type="checkbox" id="gift1" name="gift" value="pack as a gift">
+                            </label>
+                            <label for="gift2">Add postcard
+                                <input type="checkbox" id="gift2" name="gift" value="add postcard">
+                            </label>
+                            <label for="gift3">Provide 2% discount to the next time
+                                <input type="checkbox" id="gift3" name="gift" value="provide 2% discount to the next time">
+                            </label>
+                            <label for="gift4">Branded pen or pencil
+                                <input type="checkbox" id="gift4" name="gift" value="branded pen or pencil">
+                            </label>
+                        </fieldset>
                     </div>
                     <input type="submit" id="btn-submit" class="btn btn_form">
                 </form>
